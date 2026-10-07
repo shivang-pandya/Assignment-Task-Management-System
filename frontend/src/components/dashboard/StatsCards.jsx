@@ -27,13 +27,13 @@ const StatCard = ({ title, value, icon: Icon, colorClass, index }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className={`bg-white dark:bg-slate-800 rounded-xl p-5 border border-gray-100 dark:border-slate-700 shadow-sm relative overflow-hidden`}
+      className={`bg-white dark:bg-[#121212] rounded-xl p-5 border border-black/[0.08] dark:border-white/[0.08] shadow-[0_1px_2px_rgba(0,0,0,0.04)] relative overflow-hidden`}
     >
       <div className={`absolute -right-4 -top-4 w-24 h-24 rounded-full opacity-10 ${colorClass.bg}`}></div>
       <div className="flex justify-between items-start relative z-10">
         <div>
-          <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">{title}</p>
-          <h4 className="text-3xl font-bold text-gray-900 dark:text-white">{displayValue}</h4>
+          <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400 mb-1">{title}</p>
+          <h4 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">{displayValue}</h4>
         </div>
         <div className={`p-3 rounded-lg ${colorClass.bg} ${colorClass.text}`}>
           <Icon className="w-6 h-6" />
@@ -47,10 +47,10 @@ export default function StatsCards({ stats }) {
   if (!stats) return null;
 
   const cards = [
-    { title: 'Total Tasks', value: stats.total, icon: HiOutlineDocumentText, colorClass: { bg: 'bg-indigo-100 dark:bg-indigo-900/30', text: 'text-indigo-600 dark:text-indigo-400' } },
-    { title: 'Completed', value: stats.completed, icon: HiOutlineCheckCircle, colorClass: { bg: 'bg-green-100 dark:bg-green-900/30', text: 'text-green-600 dark:text-green-400' } },
-    { title: 'In Progress', value: stats.inProgress, icon: HiOutlineClock, colorClass: { bg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-600 dark:text-blue-400' } },
-    { title: 'Overdue', value: stats.overdue, icon: HiOutlineExclamationCircle, colorClass: { bg: 'bg-red-100 dark:bg-red-900/30', text: 'text-red-600 dark:text-red-400' } },
+    { title: 'Total Tasks', value: stats.total, icon: HiOutlineDocumentText, colorClass: { bg: 'bg-zinc-100 dark:bg-white/10', text: 'text-zinc-900 dark:text-white' } },
+    { title: 'Completed', value: stats.completed, icon: HiOutlineCheckCircle, colorClass: { bg: 'bg-emerald-50 dark:bg-emerald-500/10', text: 'text-emerald-600 dark:text-emerald-400' } },
+    { title: 'In Progress', value: stats.inProgress, icon: HiOutlineClock, colorClass: { bg: 'bg-blue-50 dark:bg-blue-500/10', text: 'text-blue-600 dark:text-blue-400' } },
+    { title: 'Overdue', value: stats.overdue, icon: HiOutlineExclamationCircle, colorClass: { bg: 'bg-orange-50 dark:bg-orange-500/10', text: 'text-orange-600 dark:text-orange-400' } },
   ];
 
   return (

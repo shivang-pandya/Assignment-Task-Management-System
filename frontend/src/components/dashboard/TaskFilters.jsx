@@ -14,11 +14,11 @@ export default function TaskFilters({ filters, updateFilters, viewMode, setViewM
         {/* Search */}
         <div className="relative flex-1 max-w-md">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <HiOutlineSearch className="h-5 w-5 text-gray-400" />
+            <HiOutlineSearch className="h-4 w-4 text-zinc-400" />
           </div>
           <input
             type="text"
-            className="block w-full pl-10 pr-10 py-2 border border-gray-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-primary-500 focus:border-primary-500 text-sm"
+            className="block w-full pl-9 pr-10 py-2 border border-black/10 dark:border-white/10 rounded-lg bg-white dark:bg-[#121212] text-zinc-900 dark:text-white focus:ring-0 focus:border-black/20 dark:focus:border-white/20 text-sm shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-colors"
             placeholder="Search tasks..."
             value={filters.search}
             onChange={(e) => updateFilters({ search: e.target.value })}
@@ -26,7 +26,7 @@ export default function TaskFilters({ filters, updateFilters, viewMode, setViewM
           {filters.search && (
             <button
               onClick={() => updateFilters({ search: '' })}
-              className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
             >
               <HiOutlineX className="h-4 w-4" />
             </button>
@@ -35,20 +35,20 @@ export default function TaskFilters({ filters, updateFilters, viewMode, setViewM
 
         {/* Actions right */}
         <div className="flex items-center space-x-2">
-          <div className="bg-white dark:bg-slate-800 rounded-lg p-1 border border-gray-300 dark:border-slate-700 flex">
+          <div className="bg-white dark:bg-[#121212] rounded-lg p-1 border border-black/10 dark:border-white/10 flex shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
             <button
               onClick={() => setViewMode('list')}
-              className={`p-1.5 rounded-md ${viewMode === 'list' ? 'bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'}`}
+              className={`p-1.5 rounded-md transition-colors ${viewMode === 'list' ? 'bg-zinc-100 dark:bg-white/10 text-zinc-900 dark:text-white' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200'}`}
               title="List View"
             >
-              <HiOutlineViewList className="w-5 h-5" />
+              <HiOutlineViewList className="w-4 h-4" />
             </button>
             <button
               onClick={() => setViewMode('kanban')}
-              className={`p-1.5 rounded-md ${viewMode === 'kanban' ? 'bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'}`}
+              className={`p-1.5 rounded-md transition-colors ${viewMode === 'kanban' ? 'bg-zinc-100 dark:bg-white/10 text-zinc-900 dark:text-white' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200'}`}
               title="Kanban View"
             >
-              <HiOutlineViewBoards className="w-5 h-5" />
+              <HiOutlineViewBoards className="w-4 h-4" />
             </button>
           </div>
           <Button onClick={() => navigate('/tasks/new')} icon={HiOutlinePlus}>
@@ -62,7 +62,7 @@ export default function TaskFilters({ filters, updateFilters, viewMode, setViewM
         <select
           value={filters.status}
           onChange={(e) => updateFilters({ status: e.target.value })}
-          className="block pl-3 pr-8 py-1.5 text-sm border border-gray-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-primary-500 focus:border-primary-500"
+          className="block pl-3 pr-8 py-1.5 text-sm border border-black/10 dark:border-white/10 rounded-lg bg-white dark:bg-[#121212] text-zinc-900 dark:text-white focus:ring-0 focus:border-black/20 dark:focus:border-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
         >
           <option value="">All Statuses</option>
           {STATUS_OPTIONS.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
@@ -71,26 +71,26 @@ export default function TaskFilters({ filters, updateFilters, viewMode, setViewM
         <select
           value={filters.priority}
           onChange={(e) => updateFilters({ priority: e.target.value })}
-          className="block pl-3 pr-8 py-1.5 text-sm border border-gray-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-primary-500 focus:border-primary-500"
+          className="block pl-3 pr-8 py-1.5 text-sm border border-black/10 dark:border-white/10 rounded-lg bg-white dark:bg-[#121212] text-zinc-900 dark:text-white focus:ring-0 focus:border-black/20 dark:focus:border-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
         >
           <option value="">All Priorities</option>
           {PRIORITY_OPTIONS.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
         </select>
 
-        <div className="flex items-center space-x-1 border border-gray-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 pr-1">
+        <div className="flex items-center space-x-1 border border-black/10 dark:border-white/10 rounded-lg bg-white dark:bg-[#121212] pr-1 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
           <select
             value={filters.sortBy}
             onChange={(e) => updateFilters({ sortBy: e.target.value })}
-            className="block pl-3 pr-8 py-1.5 text-sm border-transparent bg-transparent text-gray-900 dark:text-white focus:ring-0 focus:border-transparent"
+            className="block pl-3 pr-8 py-1.5 text-sm border-transparent bg-transparent text-zinc-900 dark:text-white focus:ring-0 focus:border-transparent"
           >
             {SORT_OPTIONS.map(opt => <option key={opt.value} value={opt.value}>Sort: {opt.label}</option>)}
           </select>
           <button
             onClick={() => updateFilters({ order: filters.order === 'asc' ? 'desc' : 'asc' })}
-            className="p-1.5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            className="p-1.5 text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200 transition-colors"
             title="Toggle sort order"
           >
-            {filters.order === 'asc' ? <HiOutlineSortAscending className="w-5 h-5" /> : <HiOutlineSortDescending className="w-5 h-5" />}
+            {filters.order === 'asc' ? <HiOutlineSortAscending className="w-4 h-4" /> : <HiOutlineSortDescending className="w-4 h-4" />}
           </button>
         </div>
 

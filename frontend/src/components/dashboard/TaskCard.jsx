@@ -19,11 +19,11 @@ export default function TaskCard({ task, index, onDeleteClick, isCompact = false
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
       whileHover={{ y: -2 }}
-      className={`bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all cursor-pointer group ${isCompact ? 'p-3' : 'p-5'}`}
+      className={`bg-white dark:bg-[#121212] rounded-xl border border-black/[0.08] dark:border-white/[0.08] shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)] dark:shadow-[0_1px_2px_rgba(255,255,255,0.02)] transition-all cursor-pointer group ${isCompact ? 'p-3' : 'p-5'}`}
       onClick={() => navigate(`/tasks/${task.id}`)}
     >
       <div className="flex justify-between items-start mb-2">
-        <h4 className={`font-semibold text-gray-900 dark:text-white line-clamp-1 ${isCompact ? 'text-sm' : 'text-lg'}`}>
+        <h4 className={`font-medium text-zinc-900 dark:text-zinc-100 line-clamp-1 tracking-tight ${isCompact ? 'text-sm' : 'text-base'}`}>
           {task.title}
         </h4>
         <div className="flex-shrink-0 ml-2" onClick={e => e.stopPropagation()}>
@@ -32,7 +32,7 @@ export default function TaskCard({ task, index, onDeleteClick, isCompact = false
       </div>
       
       {!isCompact && (
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 min-h-[2.5rem]">
+        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-4 line-clamp-2 min-h-[2.5rem]">
           {task.description}
         </p>
       )}
@@ -51,21 +51,21 @@ export default function TaskCard({ task, index, onDeleteClick, isCompact = false
         <div className={`flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-opacity`} onClick={e => e.stopPropagation()}>
           <button
             onClick={() => navigate(`/tasks/${task.id}`)}
-            className="p-1.5 text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-md hover:bg-primary-50 dark:hover:bg-slate-700"
+            className="p-1.5 text-zinc-400 hover:text-zinc-900 dark:hover:text-white rounded-md hover:bg-zinc-100 dark:hover:bg-white/10"
             title="View Details"
           >
             <HiOutlineEye className="w-4 h-4" />
           </button>
           <button
             onClick={() => navigate(`/tasks/${task.id}/edit`)}
-            className="p-1.5 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 rounded-md hover:bg-blue-50 dark:hover:bg-slate-700"
+            className="p-1.5 text-zinc-400 hover:text-zinc-900 dark:hover:text-white rounded-md hover:bg-zinc-100 dark:hover:bg-white/10"
             title="Edit Task"
           >
             <HiOutlinePencil className="w-4 h-4" />
           </button>
           <button
             onClick={() => onDeleteClick(task)}
-            className="p-1.5 text-gray-400 hover:text-red-600 dark:hover:text-red-400 rounded-md hover:bg-red-50 dark:hover:bg-slate-700"
+            className="p-1.5 text-zinc-400 hover:text-red-600 dark:hover:text-red-400 rounded-md hover:bg-red-50 dark:hover:bg-red-500/10"
             title="Delete Task"
           >
             <HiOutlineTrash className="w-4 h-4" />
@@ -74,7 +74,7 @@ export default function TaskCard({ task, index, onDeleteClick, isCompact = false
       </div>
       
       {!isCompact && (
-        <div className="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 text-xs text-gray-400 dark:text-gray-500">
+        <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 text-xs text-zinc-400 dark:text-zinc-500">
           Created {formatRelativeDate(task.createdAt)}
         </div>
       )}

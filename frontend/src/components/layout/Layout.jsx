@@ -8,21 +8,21 @@ export default function Layout({ children }) {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-slate-900">
+    <div className="flex h-screen overflow-hidden bg-[#FAFAFA] dark:bg-[#0A0A0A]">
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       
       <div className="flex flex-col flex-1 w-full lg:ml-64 transition-all duration-300">
         {/* Mobile Header */}
-        <header className="lg:hidden flex items-center justify-between p-4 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800">
-          <div className="flex items-center space-x-2 text-primary-600 dark:text-primary-400">
+        <header className="lg:hidden flex items-center justify-between p-4 bg-[#FAFAFA] dark:bg-[#0A0A0A] border-b border-black/10 dark:border-white/10">
+          <div className="flex items-center space-x-2 text-zinc-900 dark:text-white">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
             </svg>
-            <span className="text-lg font-bold">TaskFlow</span>
+            <span className="text-lg font-bold tracking-tight">TaskFlow</span>
           </div>
           <button 
             onClick={toggleSidebar}
-            className="p-2 rounded-md text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-slate-800 focus:outline-none"
+            className="p-2 rounded-md text-zinc-500 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-white/10 focus:outline-none"
           >
             <HiOutlineMenu className="w-6 h-6" />
           </button>
